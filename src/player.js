@@ -10,13 +10,12 @@ const int = function randomizer(min, max) {
 
 function players(gameboard, turn, input) {
 	if (turn === true) {
-		console.log("here");
 		gameboard.receivedAttack(input);
 	} else if (turn === false) {
-		let randomInt = int(0, 100);
+		let randomInt = int(100, 199);
 		console.log(randomInt);
 		while (gameboard.board[randomInt] === true) {
-			randomInt = int(0, 100);
+			randomInt = int(100, 199);
 		}
 		gameboard.receiveAttack(randomInt);
 	}

@@ -1,5 +1,41 @@
+* {
+	box-sizing: border-box;
+}
+body {
+	background: rgb(102, 153, 204);
+}
 header {
-	background-color: black;
-	/*color: white;*/
-	/*height: 5em;*/
+	background: rgb(102, 153, 204);
+	height: 10em;
+	border: 3px solid black;
+	border-radius: 5em;
+}
+
+h1 {
+	color: white;
+	text-align: center;
+}
+
+section {
+	display: inline-block;
+	float: left;
+	height: 40em;
+	width: 50%;
+	border: 3px solid black;
+}
+
+.container {
+	display: grid;
+	background: white;
+	height: 100%;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.cell {
+	border: 1px solid black;
+}
+
+.odd {
+	background: gray;
 }

@@ -7,12 +7,14 @@ module.exports = {
 	entry: "./src/index.js",
 	plugins: [
 		new HtmlWebpackPlugin({
-			title: "Battleship",
+			title: "Output Management ",
+			template: "./dist/index.html",
 		}),
 	],
 	output: {
 		filename: "main.js",
 		path: path.resolve(__dirname, "dist"),
+		clean: true,
 	},
 	devtool: "inline-source-map",
 	devServer: {

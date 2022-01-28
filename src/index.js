@@ -1,4 +1,8 @@
+import _ from "lodash";
 import { games } from "./gameloop.js";
 import "./main.css";
+import { events } from "./events.js";
 
-games();
+events();
+const game = games();
+game.initialize();
