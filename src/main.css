@@ -39,3 +39,14 @@ section {
 .odd {
 	background: gray;
 }
+
+.miss {
+	background: rgb(102, 153, 204);
+	border: 1px solid black;
+}
+
+.hit {
+	background: red;
+	/*background: rgb(41, 0, 0);*/
+	border: 1px solid black;
+}

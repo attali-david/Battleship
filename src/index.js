@@ -6,3 +6,4 @@ import { events } from "./events.js";
 events();
 const game = games();
 game.initialize();
+game.turn();
