@@ -13,10 +13,14 @@ function players(gameboard, turn, input) {
 		gameboard.receiveAttack(input);
 	} else if (turn === false) {
 		let randomInt = randomizer(0, 99);
-		while (gameboard.verifyCoord(randomInt) === false) {
+		while (gameboard.verifyCoord(randomInt, false) === false) {
 			randomInt = randomizer(0, 99);
 		}
 		gameboard.receiveAttack(randomInt);
 	}
 	game.gamestate();
 }
+
+/*
+As i loop through the length of the ship, i can check to see if any of the cells > 0 of the ship would land on a cell whose % 10 === 0
+*/

@@ -4,16 +4,16 @@ export { ships };
 const ships = (length) => {
 	return {
 		length,
-		// whereHit: new Array(length).fill("ship"),
 		whereHit: {},
 		isDead: false,
-		hit(num) {
-			this.whereHit[num] = true;
-			this.isSunk();
+		hit(coord) {
+			this.whereHit[coord] = true;
 		},
 		isSunk() {
-			if (!this.whereHit.hasOwnProperty(false)) {
+			if (!Object.values(this.whereHit).includes(false)) {
+				console.log(this.whereHit.hasOwnProperty(false));
 				this.isDead = true;
+				return true;
 			}
 		},
 	};

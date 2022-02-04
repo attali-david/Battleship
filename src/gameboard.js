@@ -7,7 +7,7 @@ const gameboards = () => {
 	for (let i = 0; i < 199; i++) {
 		_board[i] = false;
 	}
-	let _win = 1;
+	let _win = 5;
 
 	return {
 		// Report whether or not all of their ships have been sunk.
@@ -21,29 +21,32 @@ const gameboards = () => {
 		// Places ships at specific coordinates by calling the ship factory function.
 		placeShip(coord, ship) {
 			for (var i = 0; i < ship.length; i++) {
-				ship.whereHit[coord + i] = "ship";
-				_board[coord + i] = ship.whereHit[coord + i];
-
-				console.log(_board);
+				ship.whereHit[coord + i] = false;
+				_board[coord + i] = ship;
 				document.getElementById(coord + i).innerHTML = "X";
 			}
-			// _board[coord] = true;
-			// console.log(coord, _board[coord]);
 		},
 		// Takes a coordinate, determines whether or not the attack hit a ship and then sends the ‘hit’ function to the correct ship, or records the coordinates of the missed shot.
 		receiveAttack(coord) {
 			if (_board[coord] === false) {
 				_board[coord] = "miss";
 				document.getElementById(coord).setAttribute("class", "miss");
-			} else if (_board[coord] != false && _board[coord] != "miss") {
-				_board[coord].hit(num);
+			} else if (typeof _board[coord] === "object") {
 				document.getElementById(coord).setAttribute("class", "hit");
-				_win--;
-				this.endgame();
+				_board[coord].hit(coord);
+				console.log(_board[coord]);
+				if (!!_board[coord].isSunk()) {
+					_win--;
+					console.log("sunk", _win);
+					this.endgame();
+				}
 			}
 		},
-		verifyCoord(coord) {
-			if (_board[coord] === "miss") {
+		verifyCoord(coord, value) {
+			if (_board[coord] === "miss" && value === false) {
+				return false;
+			}
+			if (typeof _board[coord] === "object" && value === true) {
 				return false;
 			}
 			return true;
