@@ -26,9 +26,8 @@ const gameboards = () => {
 			for (var i = 0; i < ship.length; i++) {
 				ship.whereHit[coord + axisCoord] = false;
 				_board[coord + axisCoord] = ship;
-				document.getElementById(coord + axisCoord).innerHTML = "X";
-				// console.log(_board);
-				// console.log(axisCoord, axisValue, _board[coord + axisCoord]);
+				// document.getElementById(coord + axisCoord).innerHTML = "X";
+
 				if (axisValue > 50) {
 					axisCoord += 10;
 				} else {
