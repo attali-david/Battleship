@@ -11,12 +11,21 @@ function randomizer(min, max) {
 function players(gameboard, turn, input) {
 	if (turn === true) {
 		gameboard.receiveAttack(input);
+		if (!!gameboard.receiveAttack(input)) {
+			return true;
+		}
 	} else if (turn === false) {
 		let randomInt = randomizer(0, 99);
 		while (gameboard.verifyCoord(randomInt, false) === false) {
 			randomInt = randomizer(0, 99);
 		}
 		gameboard.receiveAttack(randomInt);
+		if (!!gameboard.receiveAttack(randomInt)) {
+			console.log("computer should get another turn");
+			return true;
+		} else {
+			return false;
+		}
 	}
 	game.gamestate();
 }
